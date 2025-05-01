@@ -1,0 +1,45 @@
+Start :
+
+Create and open :
+1. run in cmd: npx @react-native-community/cli@latest init todoapp
+2. open this 'todoapp' folder in VS Code
+
+Run :
+3. Connect physically Android Device with debugging mode
+4. run in VS Code terminal to see device: adb devices
+Res like:	List of devices attached
+		10BD4319PR0006J device
+5. run in VS Code terminal: npx react-native run-android
+6. run in VS Code terminal: npm start
+
+Installation:
+7. npm install react-native-fs
+8. reset if need: npx react-native start --reset-cache
+
+9. Clean your build if need: 
+cd android
+./gradlew clean
+cd ..
+
+==========================================================================
+android/gradle.properties
+
+MYAPP_UPLOAD_STORE_FILE=appKeystore
+MYAPP_UPLOAD_KEY_ALIAS=key1
+MYAPP_UPLOAD_STORE_PASSWORD=123456
+MYAPP_UPLOAD_KEY_PASSWORD=123456
+
+==========================================================================
+android/app/build.gradle
+signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+    }
+
+==========================================================================
