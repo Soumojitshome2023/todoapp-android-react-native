@@ -1,5 +1,4 @@
-Start :
-
+================================ Start ================================
 Create and open :
 1. run in cmd: npx @react-native-community/cli@latest init todoapp
 2. open this 'todoapp' folder in VS Code
@@ -8,9 +7,11 @@ Run :
 3. Connect physically Android Device with debugging mode
 4. run in VS Code terminal to see device: adb devices
 Res like:	List of devices attached
-		10BD4319PR0006J device
-5. run in VS Code terminal: npx react-native run-android
-6. run in VS Code terminal: npm start
+		    10BD4319PR0006J device
+5. run in VS Code terminal: npm start
+6. run in VS Code terminal: npx react-native run-android
+
+Write Code inside App.jsx / App.tsx
 
 Installation:
 7. npm install react-native-fs
@@ -21,25 +22,52 @@ cd android
 ./gradlew clean
 cd ..
 
-==========================================================================
-android/gradle.properties
+================================ Final Steps ================================
+10. Set gradle.properties:
+
+goto : android/gradle.properties
 
 MYAPP_UPLOAD_STORE_FILE=appKeystore
 MYAPP_UPLOAD_KEY_ALIAS=key1
 MYAPP_UPLOAD_STORE_PASSWORD=123456
 MYAPP_UPLOAD_KEY_PASSWORD=123456
 
-==========================================================================
-android/app/build.gradle
+11. Set build.gradle:
+
+goto : android/app/build.gradle
+
 signingConfigs {
-        release {
-            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
-                storeFile file(MYAPP_UPLOAD_STORE_FILE)
-                storePassword MYAPP_UPLOAD_STORE_PASSWORD
-                keyAlias MYAPP_UPLOAD_KEY_ALIAS
-                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
-            }
+    release {
+        if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+            storeFile file(MYAPP_UPLOAD_STORE_FILE)
+            storePassword MYAPP_UPLOAD_STORE_PASSWORD
+            keyAlias MYAPP_UPLOAD_KEY_ALIAS
+            keyPassword MYAPP_UPLOAD_KEY_PASSWORD
         }
     }
+}
 
-==========================================================================
+
+12. open 'android' folder in android studio,
+13. goto build option
+14. click on : generate signed app bundle or APK
+15. select : APK
+16. create new
+17. add : E:\AndroidDev\todoapp\android\app
+18. Set File Name : appKeystore
+19. Password : 123456
+20. Alias: key1
+21. Name: Soumojit Shome, other cc
+22. click on next
+23. select : release
+24. click on create
+
+================================ APK File Done ================================
+25. goto : E:\AndroidDev\todoapp\android\app\release 
+and APK is done by name 'app-release.apk'
+
+26. Send this file in android device and install and use
+
+
+
+================================ Done ================================
