@@ -11,10 +11,29 @@ Res like:	List of devices attached
 5. run in VS Code terminal: npm start
 6. run in VS Code terminal: npx react-native run-android
 
+================================ Edit App ================================
+
 Write Code inside App.jsx / App.tsx
+
+Set App Name : 
+goto : android/app/src/main/res/values/strings.xml
+add : <string name="app_name">YourAppName</string>
+also change app.json
+{
+  "name": "todoapp",
+  "displayName": "ToDo App"
+}
+dont change name, change displayName
+
+
+change icon : 
+goto : https://icon.kitchen/
+
 
 Installation:
 7. npm install react-native-fs
+
+================================ if need ================================
 8. reset if need: npx react-native start --reset-cache
 
 9. Clean your build if need: 
@@ -52,7 +71,7 @@ signingConfigs {
 13. goto build option
 14. click on : generate signed app bundle or APK
 15. select : APK
-16. create new
+16. create new (if not already created)
 17. add : E:\AndroidDev\todoapp\android\app
 18. Set File Name : appKeystore
 19. Password : 123456
