@@ -139,6 +139,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.title}>📝 My To-Do List ({taskList.length})</Text>
+      <Text style={styles.subTitle}>Designed by Soumojit Shome</Text>
 
       <View style={styles.inputSection}>
         <TextInput
@@ -175,6 +176,13 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
+    fontWeight: 'bold',
+    color: '#007bff',
+    marginBottom: 10,
+    alignSelf: 'center',
+  },
+  subTitle: {
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#007bff',
     marginBottom: 20,

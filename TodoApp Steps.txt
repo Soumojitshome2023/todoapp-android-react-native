@@ -23,26 +23,26 @@ also change app.json
   "name": "todoapp",
   "displayName": "ToDo App"
 }
-dont change name, change displayName
+do not change name, change displayName
 
 
-change icon : 
-goto : https://icon.kitchen/
+Change icon : 
+goto (create icon): https://icon.kitchen/
 
 
 Installation:
-7. npm install react-native-fs
+npm install react-native-fs
 
 ================================ if need ================================
-8. reset if need: npx react-native start --reset-cache
+reset if need: npx react-native start --reset-cache
 
-9. Clean your build if need: 
+Clean your build if need: 
 cd android
 ./gradlew clean
 cd ..
 
 ================================ Final Steps ================================
-10. Set gradle.properties:
+Set gradle.properties:
 
 goto : android/gradle.properties
 
@@ -51,7 +51,7 @@ MYAPP_UPLOAD_KEY_ALIAS=key1
 MYAPP_UPLOAD_STORE_PASSWORD=123456
 MYAPP_UPLOAD_KEY_PASSWORD=123456
 
-11. Set build.gradle:
+Set build.gradle:
 
 goto : android/app/build.gradle
 
@@ -65,27 +65,51 @@ signingConfigs {
         }
     }
 }
+================================ Convert to APK File ================================
+Using Android studio:
 
+open 'android' folder in android studio,
+goto build option
+click on : generate signed app bundle or APK
+select : APK
+create new (if not already created)
+add : E:\AndroidDev\todoapp\android\app
+Set File Name : appKeystore
+Password : 123456
+Alias: key1
+Name: Soumojit Shome, other cc
+click on next
+select : release
+click on create
 
-12. open 'android' folder in android studio,
-13. goto build option
-14. click on : generate signed app bundle or APK
-15. select : APK
-16. create new (if not already created)
-17. add : E:\AndroidDev\todoapp\android\app
-18. Set File Name : appKeystore
-19. Password : 123456
-20. Alias: key1
-21. Name: Soumojit Shome, other cc
-22. click on next
-23. select : release
-24. click on create
-
-================================ APK File Done ================================
-25. goto : E:\AndroidDev\todoapp\android\app\release 
+After the build completes, your APK will be here:
+goto : E:\AndroidDev\todoapp\android\app\release 
 and APK is done by name 'app-release.apk'
 
-26. Send this file in android device and install and use
+-------------------------------------------------------------------
+Using Terminal:
+
+keytool -genkeypair -v -keystore appKeystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+
+or,
+
+keytool -genkeypair -v -keystore android/app/appKeystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+
+
+Run Build with Clean Cache:
+cd android
+.\gradlew.bat clean
+.\gradlew.bat assembleRelease
+
+
+After the build completes, your APK will be here:
+android/app/build/outputs/apk/release/app-release.apk
+
+
+================================ APK File Done ================================
+
+Send this file in android device and install and use
+
 
 
 
